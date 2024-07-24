@@ -19,8 +19,8 @@ class FIFOCache(BaseCaching):
             the item value for the key
         """
         if key and item:
-            if key in self.cache_data:
-                self.cache_data[key] = item
+            self.cache_data[key] = item
+
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
                 self.list_dict = list(self.cache_data.keys())
                 print(f"DISCARD {self.list_dict[0]}")
