@@ -23,6 +23,6 @@ class BasicCache(BaseCaching):
             return the value in self.cache_data linked to key
         """
         try:
-            return self.cache_data[key]
+            return self.cache_data.get(key)
         except KeyError as e:
             return None
