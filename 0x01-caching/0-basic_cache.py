@@ -13,9 +13,7 @@ class BasicCache(BaseCaching):
             to the dict self.cache_data
             Do nothing if key or item is None
         """
-        if None in (key, item):
-            pass
-        else:
+        if key and item:
             self.cache_data[key] = item
 
     def get(self, key):
