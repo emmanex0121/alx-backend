@@ -5,18 +5,19 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 class FIFOCache(BaseCaching):
     """
-        a class FIFOCache that inherits from BaseCaching
-        and is a caching system
+        A class FIFOCache that inherits from BaseCaching
+        and is a caching system implementing FIFO (First-In-First-Out)
+        eviction policy.
     """
 
     def __init__(self):
-        """ Init method """
+        """ Initialize the FIFO cache """
         super().__init__()
 
     def put(self, key, item):
         """
-            assign to the dictionary self.cache_data
-            the item value for the key
+            Assign the item value to the key in self.cache_data.
+            If the number of items exceeds MAX_ITEMS, discard the oldest one.
         """
         if key is not None and item is not None:
             self.cache_data[key] = item
@@ -28,6 +29,6 @@ class FIFOCache(BaseCaching):
 
     def get(self, key):
         """
-            return the value in self.cache_data linked to key.
+            Return the value in self.cache_data linked to the key.
         """
         return self.cache_data.get(key, None)
