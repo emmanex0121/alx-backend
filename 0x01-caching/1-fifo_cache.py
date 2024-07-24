@@ -18,12 +18,12 @@ class FIFOCache(BaseCaching):
             assign to the dictionary self.cache_data
             the item value for the key
         """
-        if key and item:
+        if key is not None and item is not None:
             self.cache_data[key] = item
 
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
                 self.list_dict = list(self.cache_data.keys())
-                print(f"DISCARD {self.list_dict[0]}")
+                print(f"DISCARD: {self.list_dict[0]}")
                 del self.cache_data[self.list_dict[0]]
 
     def get(self, key):
